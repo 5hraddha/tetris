@@ -14,12 +14,5 @@ export default defineConfig(() => {
       outDir: "build",
     },
     plugins: [react()],
-    resolve: {
-      alias: {
-        "@components/*": "./src/components/*",
-        "@hooks": "./src/hooks",
-        "@utils": "./src/utils",
-      },
-    },
   };
 });

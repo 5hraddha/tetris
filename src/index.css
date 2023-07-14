@@ -1,0 +1,23 @@
+/* Resetting browser defaults */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #fff9db;
+  --text-primary: #1a1b1e;
+}
+
+[data-theme="dark"] {
+  --background: #862e9c;
+  --text-primary: #ffffff;
+}
+
+body {
+  font-family: sans-serif;
+  width: 100%;
+}
