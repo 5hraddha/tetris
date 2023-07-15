@@ -6,7 +6,7 @@ type UseGameOverType = [
   resetGameOver: () => void,
 ];
 
-/* eslint-disable */
+/* eslint-disable  import/prefer-default-export */
 export const useGameOver = (): UseGameOverType => {
   const [gameOver, setGameOver] = useState<boolean>(true);
 
