@@ -1,4 +1,5 @@
 import Menu from "../Menu";
+import { useGameOver } from "../../hooks/useGameOver";
 import "./Game.css";
 
 type GameProps = {
@@ -9,8 +10,12 @@ type GameProps = {
 function Game({ rows, columns }: GameProps) {
   console.log(`${rows} ${columns}`);
 
+  const [gameOver, setGameOver, resetGameOver] = useGameOver();
+
   const startGame = () => {
-    console.log("Game started");
+    setGameOver(true);
+    resetGameOver();
+    console.log(`Game started and gameOver's value is ${gameOver}`);
   };
   return (
     <div className="game">
