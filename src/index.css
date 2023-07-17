@@ -10,11 +10,38 @@
 :root {
   --background: #fff9db;
   --text-primary: #1a1b1e;
+
+  /* Board Colors */
+  --board-background-color: #074f5b;
+  --board-shadow: rgb(0 0 0 / 35%);
+
+  /* Shadow Colors */
+  --dark-shadow: rgb(0 0 0 / 10%);
+  --light-shadow: rgb(255 255 255 / 10%);
+
+  /* Tetrominoes Colors */
+  --tetromino-i-color: #74c0fc;
+  --tetromino-o-color: #fcc419;
+  --tetromino-t-color: #9775fa;
+  --tetromino-s-color: #51cf66;
+  --tetromino-z-color: #fa5252;
+  --tetromino-j-color: #228be6;
+  --tetromino-l-color: #ff922b;
+
+  /* Tetromino Sparkle */
+  --tetromino-sparkle: rgb(255 255 255 / 40%);
+
+  /* Tetromino Ghost */
+  --tetromino-ghost: rgb(255 255 255 / 20%);
 }
 
 [data-theme="dark"] {
   --background: #862e9c;
   --text-primary: #ffffff;
+
+  /* Board Colors */
+  --board-background-color: #0d0040;
+  --board-shadow: rgb(0 0 0 / 35%);
 }
 
 body {

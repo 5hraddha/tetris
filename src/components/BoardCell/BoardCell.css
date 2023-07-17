@@ -1,0 +1,54 @@
+.boardCell {
+  position: relative;
+  width: auto;
+  border-radius: 6px;
+}
+
+.tetromino {
+  border-top: 3px solid var(--light-shadow);
+  border-left: 3px solid var(--light-shadow);
+  border-bottom: 3px solid var(--dark-shadow);
+  border-right: 3px solid var(--dark-shadow);
+}
+
+.tetromino .sparkle {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 6px;
+  height: 6px;
+  z-index: 10;
+  border-radius: 4px;
+  background-color: var(--tetromino-sparkle);
+}
+
+.tetromino__ghost {
+  background-color: transparent;
+  border: 2px solid var(--tetromino-ghost);
+}
+
+.tetromino__ghost .sparkle {
+  opacity: 0;
+}
+
+.tetromino__i {
+  background-color: var(--tetromino-i-color);
+}
+.tetromino__o {
+  background-color: var(--tetromino-o-color);
+}
+.tetromino__t {
+  background-color: var(--tetromino-t-color);
+}
+.tetromino__s {
+  background-color: var(--tetromino-s-color);
+}
+.tetromino__z {
+  background-color: var(--tetromino-z-color);
+}
+.tetromino__j {
+  background-color: var(--tetromino-j-color);
+}
+.tetromino__l {
+  background-color: var(--tetromino-l-color);
+}

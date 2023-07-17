@@ -18,7 +18,7 @@ function Game({ rows, columns }: GameProps) {
       {gameOver ? (
         <Menu onClick={startGame} />
       ) : (
-        <Tetris setGameOver={setGameOver} rows={rows} columns={columns} />
+        <Tetris rows={rows} columns={columns} setGameOver={setGameOver} />
       )}
     </div>
   );
