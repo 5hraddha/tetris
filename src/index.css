@@ -10,6 +10,7 @@
 :root {
   --background: #fff9db;
   --text-primary: #1a1b1e;
+  --text-secondary: #909296;
 
   /* Board Colors */
   --board-background-color: #074f5b;
@@ -38,6 +39,7 @@
 [data-theme="dark"] {
   --background: #862e9c;
   --text-primary: #ffffff;
+  --text-secondary: #ced4da;
 
   /* Board Colors */
   --board-background-color: #0d0040;

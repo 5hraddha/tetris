@@ -1,3 +1,14 @@
 .tetris {
   position: relative;
+  display: flex;
+}
+
+.tetris_board-right {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 425px) {
+  .tetris {
+    flex-direction: column;
+  }
 }
