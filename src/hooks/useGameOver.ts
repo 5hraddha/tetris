@@ -1,13 +1,7 @@
 import { useState, useCallback } from "react";
+import { UseGameOverReturn } from "../types/useGameOver";
 
-type UseGameOverType = [
-  gameOver: boolean,
-  setGameOver: (gameOver: boolean) => void,
-  resetGameOver: () => void,
-];
-
-/* eslint-disable  import/prefer-default-export */
-export const useGameOver = (): UseGameOverType => {
+export const useGameOver = (): UseGameOverReturn => {
   const [gameOver, setGameOver] = useState<boolean>(true);
 
   const resetGameOver = useCallback(() => {
