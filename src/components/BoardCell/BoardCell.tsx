@@ -8,7 +8,7 @@ type BoardCellProps = {
 function BoardCell({ cell }: BoardCellProps) {
   return (
     <div className={`boardCell ${cell.className}`}>
-      <div className="boardCell_sparkle" />
+      <div className="sparkle" />
     </div>
   );
 }
