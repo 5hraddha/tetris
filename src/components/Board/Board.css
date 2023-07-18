@@ -6,6 +6,7 @@
   height: 60vw;
   background-color: var(--board-background-color);
   border-radius: 10px;
+  border: 20px solid var(--board-border);
   box-shadow: var(--board-shadow) 0px 5px 15px;
 }
 

@@ -13,9 +13,15 @@ type TetrisProps = {
 };
 
 function Tetris({ rows, columns }: TetrisProps) {
-  const [player] = usePlayer();
-  const [board] = useBoard({ rows, columns });
-  const [gameStats] = useGameStats();
+  const [player, resetPlayer] = usePlayer();
+  const [gameStats, addLinesCleared] = useGameStats();
+  const [board] = useBoard({
+    rows,
+    columns,
+    player,
+    resetPlayer,
+    addLinesCleared,
+  });
 
   return (
     <div className="tetris">

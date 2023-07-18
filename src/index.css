@@ -15,6 +15,7 @@
 
   /* Board Colors */
   --board-background-color: #074f5b;
+  --board-border: #063b45;
   --board-shadow: rgb(0 0 0 / 35%);
 
   /* Shadow Colors */
@@ -44,6 +45,7 @@
 
   /* Board Colors */
   --board-background-color: #0d0040;
+  --board-border: #070218;
   --board-shadow: rgb(0 0 0 / 35%);
 }
 
