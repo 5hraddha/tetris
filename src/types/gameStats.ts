@@ -1,4 +1,4 @@
-export type GameStatsType = {
+export type GameStats = {
   level: number;
   linesCompleted: number;
   linesPerLevel: number;
@@ -6,6 +6,6 @@ export type GameStatsType = {
 };
 
 export type UseGameStatsReturn = [
-  gameStats: GameStatsType,
+  gameStats: GameStats,
   addLinesCleared: () => void,
 ];

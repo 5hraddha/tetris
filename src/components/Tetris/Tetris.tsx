@@ -1,4 +1,5 @@
 import Board from "../Board";
+import GameController from "../GameController";
 import GameStats from "../GameStats";
 import Previews from "../Previews";
 import { useBoard } from "../../hooks/useBoard";
@@ -9,10 +10,10 @@ import "./Tetris.css";
 type TetrisProps = {
   rows: number;
   columns: number;
-  // setGameOver: (gameOver: boolean) => void;
+  setGameOver: (gameOver: boolean) => void;
 };
 
-function Tetris({ rows, columns }: TetrisProps) {
+function Tetris({ rows, columns, setGameOver }: TetrisProps) {
   const [player, resetPlayer] = usePlayer();
   const [gameStats, addLinesCleared] = useGameStats();
   const [board] = useBoard({
@@ -30,6 +31,13 @@ function Tetris({ rows, columns }: TetrisProps) {
         <Previews tetrominoes={player.tetrominoes} />
         <GameStats gameStats={gameStats} />
       </div>
+      <GameController
+        // board={board}
+        // gameStats={gameStats}
+        // player={player}
+        setGameOver={setGameOver}
+        // setPlayer={setPlayer}
+      />
     </div>
   );
 }
