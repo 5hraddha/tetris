@@ -18,7 +18,7 @@ const tryRotatingTetromino = ({
     direction,
   });
 
-  const {position} = player;
+  const { position } = player;
 
   // Check if the rotated tetromino is within the board or has collision?
   const isValidRotation =
@@ -37,23 +37,24 @@ const tryRotatingTetromino = ({
       },
     });
     return true;
-  } 
-    return false;
-  
+  }
+  return false;
 };
 
 export const playerController = ({
   action,
   board,
   player,
-  setPlayer,
-} // setGameOver,
-: PlayerController) => {
+  setPlayer, // setGameOver,
+}: PlayerController) => {
   if (!action) return;
 
   // Have to enable player to rotate both clockwise and anticlockwise
-  // Right now, direction is 1, means only clockwise rotation is possible
-  if (action === Action.Rotate) {
+  if (action === Action.RotateClockwise) {
     tryRotatingTetromino({ board, player, setPlayer, direction: 1 });
+  }
+
+  if (action === Action.RotateAnticlockwise) {
+    tryRotatingTetromino({ board, player, setPlayer, direction: -1 });
   }
 };

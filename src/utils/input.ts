@@ -4,7 +4,8 @@ export const enum Action {
   Pause = "Pause",
   Quit = "Quit",
   Right = "Right",
-  Rotate = "Rotate",
+  RotateClockwise = "RotateClockwise",
+  RotateAnticlockwise = "RotateAnticlockwise",
   SlowDrop = "SlowDrop",
 }
 
@@ -13,7 +14,11 @@ type KeyType = {
 };
 
 export const Key: KeyType = {
-  ArrowUp: Action.Rotate,
+  ArrowUp: Action.RotateClockwise,
+  KeyX: Action.RotateClockwise,
+  ControlLeft: Action.RotateAnticlockwise,
+  ControlRight: Action.RotateAnticlockwise,
+  KeyZ: Action.RotateAnticlockwise,
   ArrowDown: Action.SlowDrop,
   ArrowLeft: Action.Left,
   ArrowRight: Action.Right,
