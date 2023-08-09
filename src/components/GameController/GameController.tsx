@@ -1,23 +1,35 @@
-// import { BuildBoardReturn } from "../../types/board";
+import { BuildBoardReturn } from "../../types/board";
 // import { GameStats } from "../../types/gameStats";
-// import { Player } from "../../types/player";
+import { Player } from "../../types/player";
 import { Action, getActionForKey } from "../../utils/input";
+import { playerController } from "../../utils/playerController";
 import "./GameController.css";
 
 type GameControllerProps = {
-  // board: BuildBoardReturn;
+  board: BuildBoardReturn;
   // gameStats: GameStats;
-  // player: Player;
+  player: Player;
   setGameOver: (gameOver: boolean) => void;
-  // setPlayer: (player: Player) => void;
+  setPlayer: (player: Player) => void;
 };
 
 function GameController({
-  // board,
+  board,
   // gameStats,
-  // player,
-  setGameOver, // setPlayer,
+  player,
+  setGameOver,
+  setPlayer,
 }: GameControllerProps) {
+  const handleInput = ({ action }: { action: `${Action}` }) => {
+    playerController({
+      action,
+      board,
+      player,
+      setPlayer,
+      setGameOver,
+    });
+  };
+
   const onKeyUp = ({ code }: { code: string }) => {
     if (getActionForKey(code) === Action.Quit) {
       setGameOver(true);
@@ -25,7 +37,7 @@ function GameController({
   };
 
   const onKeyDown = ({ code }: { code: string }) => {
-    console.log(`onKeyDown: ${code}`);
+    handleInput({ action: getActionForKey(code) });
   };
 
   return (

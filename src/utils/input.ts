@@ -1,19 +1,15 @@
-type ActionType = {
-  [key: string]: string;
-};
-
-export const Action: ActionType = {
-  Left: "Left",
-  FastDrop: "FastDrop",
-  Pause: "Pause",
-  Quit: "Quit",
-  Right: "Right",
-  Rotate: "Rotate",
-  SlowDrop: "SlowDrop",
-};
+export const enum Action {
+  Left = "Left",
+  FastDrop = "FastDrop",
+  Pause = "Pause",
+  Quit = "Quit",
+  Right = "Right",
+  Rotate = "Rotate",
+  SlowDrop = "SlowDrop",
+}
 
 type KeyType = {
-  [key: string]: string;
+  [key: string]: `${Action}`;
 };
 
 export const Key: KeyType = {

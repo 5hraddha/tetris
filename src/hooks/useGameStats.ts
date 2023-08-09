@@ -1,5 +1,5 @@
 import { useState, useCallback } from "react";
-import { GameStats, UseGameStatsReturn } from "../types/gameStats";
+import type { GameStats, UseGameStatsReturn } from "../types/gameStats";
 
 const buildGameStats = (): GameStats => ({
   level: 1,

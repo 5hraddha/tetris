@@ -1,5 +1,6 @@
-import { DefaultCell } from "./defaultCell";
-import { Player } from "./player";
+import type { DefaultCell } from "./defaultCell";
+import type { Player } from "./player";
+import type { Tetromino } from "./tetromino";
 
 export type Board = {
   rows: number;
@@ -24,3 +25,15 @@ export type NextBoard = {
 };
 
 export type UseBoardReturn = [board: BuildBoardReturn];
+
+export type HasTetrominoCollided = {
+  board: BuildBoardReturn;
+  position: Player["position"];
+  shape: Tetromino["shape"];
+};
+
+export type IsTetrominoWithinBoard = {
+  board: BuildBoardReturn;
+  position: Player["position"];
+  shape: Tetromino["shape"];
+};

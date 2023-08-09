@@ -1,4 +1,4 @@
-import { Tetromino } from "./tetromino";
+import type { Tetromino } from "./tetromino";
 
 export type Player = {
   collided: boolean;

@@ -1,16 +1,11 @@
-import { Tetromino } from "../types/tetromino";
-import { DefaultCell } from "../types/defaultCell";
+import type {
+  Tetromino,
+  TransferToBoard,
+  RotateTetromino,
+} from "../types/tetromino";
 
 type Tetrominoes = {
   [key: string]: Tetromino;
-};
-
-type TransferToBoardParams = {
-  className: string;
-  isOccupied: boolean;
-  position: { row: number; column: number };
-  rows: DefaultCell[][];
-  shape: number[][];
 };
 
 const tetrominoClassName = "tetromino";
@@ -81,16 +76,10 @@ export const getRandomTetromino = () => {
   return TETROMINOES[randomTetrominokey];
 };
 
-export const rotateTetromino = ({
-  piece,
-  direction,
-}: {
-  piece: number[][];
-  direction: number;
-}) => {
+export const rotateTetromino = ({ piece, direction }: RotateTetromino) => {
   // Transpose rows and columns
   const newPiece = piece.map((_, index) =>
-    piece.map((column) => column[index]),
+    piece.map((column) => column[index])
   );
 
   // Reverse rows to get a rotated matrix
@@ -105,7 +94,7 @@ export const transferToBoard = ({
   position,
   rows,
   shape,
-}: TransferToBoardParams) => {
+}: TransferToBoard) => {
   const currentRows = rows;
   shape.forEach((row, y) => {
     row.forEach((cell, x) => {

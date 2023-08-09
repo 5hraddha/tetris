@@ -1,6 +1,6 @@
 import { useState, useCallback } from "react";
 import { getRandomTetromino } from "../utils/tetrominoes";
-import { Player, UsePlayerReturn } from "../types/player";
+import type { Player, UsePlayerReturn } from "../types/player";
 
 const buildPlayer = (previous?: Player): Player => {
   let tetrominoes;

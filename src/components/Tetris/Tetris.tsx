@@ -14,7 +14,7 @@ type TetrisProps = {
 };
 
 function Tetris({ rows, columns, setGameOver }: TetrisProps) {
-  const [player, resetPlayer] = usePlayer();
+  const [player, setPlayer, resetPlayer] = usePlayer();
   const [gameStats, addLinesCleared] = useGameStats();
   const [board] = useBoard({
     rows,
@@ -32,11 +32,11 @@ function Tetris({ rows, columns, setGameOver }: TetrisProps) {
         <GameStats gameStats={gameStats} />
       </div>
       <GameController
-        // board={board}
+        board={board}
         // gameStats={gameStats}
-        // player={player}
+        player={player}
         setGameOver={setGameOver}
-        // setPlayer={setPlayer}
+        setPlayer={setPlayer}
       />
     </div>
   );
