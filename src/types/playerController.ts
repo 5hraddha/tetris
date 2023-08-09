@@ -1,6 +1,6 @@
 import type { BuildBoardReturn } from "./board";
 import type { Player } from "./player";
-import type { RotateTetromino } from "./tetromino";
+import type { Tetromino, RotateTetromino } from "./tetromino";
 import { Action } from "../utils/input";
 
 export type PlayerController = {
@@ -16,4 +16,19 @@ export type TryRotatingTetromino = {
   player: Player;
   setPlayer: (player: Player) => void;
   direction: RotateTetromino["direction"];
+};
+
+export type TryMovingTetromino = {
+  board: BuildBoardReturn;
+  player: Player;
+  setPlayer: (player: Player) => void;
+  action: `${Action}`;
+  setGameOver: (gameOver: boolean) => void;
+};
+
+export type MovePlayer = {
+  delta: { row: number; column: number };
+  position: Player["position"];
+  shape: Tetromino["shape"];
+  board: BuildBoardReturn;
 };

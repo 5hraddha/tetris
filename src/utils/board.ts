@@ -20,7 +20,11 @@ export const buildBoard = ({ rows, columns }: BuildBoard): BuildBoardReturn => {
   };
 };
 
-export const nextBoard = ({ board, player }: NextBoard): BuildBoardReturn => {
+export const nextBoard = ({
+  board,
+  player,
+  resetPlayer,
+}: NextBoard): BuildBoardReturn => {
   const { tetromino, position } = player;
 
   // 1. Check if the cell on the board is occupied or not.
@@ -40,6 +44,11 @@ export const nextBoard = ({ board, player }: NextBoard): BuildBoardReturn => {
     rows: updatedRows,
     shape: tetromino!.shape,
   });
+
+  // If we collided, reset the player!
+  if (player.collided || player.isFastDropping) {
+    resetPlayer();
+  }
 
   return {
     rows,
