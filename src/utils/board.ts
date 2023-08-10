@@ -11,7 +11,7 @@ import { transferToBoard } from "./tetrominoes";
 // Builds a board having n rows. Each row has n columns. And each column has a default cell.
 export const buildBoard = ({ rows, columns }: BuildBoard): BuildBoardReturn => {
   const builtRows = Array.from({ length: rows }, () =>
-    Array.from({ length: columns }, () => ({ ...defaultCell }))
+    Array.from({ length: columns }, () => ({ ...defaultCell })),
   );
 
   return {
@@ -34,7 +34,7 @@ export const nextBoard = ({
   // So, we want to clear out such cells and replace it with the Default Cell.
   // We do this because as the player is moving the piece down, we want to clear out the previous cells.
   const updatedRows = board.rows.map((row) =>
-    row.map((cell) => (cell.occupied ? cell : { ...defaultCell }))
+    row.map((cell) => (cell.occupied ? cell : { ...defaultCell })),
   );
 
   const rows = transferToBoard({
