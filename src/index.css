@@ -1,3 +1,6 @@
+@import url("./assets/fonts/index.css");
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+
 /* Resetting browser defaults */
 *,
 *::before,
@@ -8,8 +11,13 @@
 }
 
 :root {
-  /* --background: #fff9db; */
-  --background: #c3fae8;
+  --background-image: linear-gradient(
+    109.6deg,
+    rgba(255, 179, 189, 1) 1.8%,
+    rgba(254, 248, 154, 1) 50.6%,
+    rgba(161, 224, 186, 1) 100.3%
+  );
+  --logo-background: #f783ac;
   --text-primary: #1a1b1e;
   --text-secondary: #909296;
 
@@ -39,7 +47,8 @@
 }
 
 [data-theme="dark"] {
-  --background: #862e9c;
+  --background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
+  --logo-background: #1971c2;
   --text-primary: #ffffff;
   --text-secondary: #ced4da;
 

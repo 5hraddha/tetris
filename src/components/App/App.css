@@ -1,18 +1,40 @@
 .app {
-  background: var(--background);
+  background: var(--background-image);
   color: var(--text-primary);
   min-height: 100vh;
   width: 100%;
+  font-family: "Acme", sans-serif;
 }
 
-.app__container {
+.app__main {
   margin: 0 auto;
   padding: 40px 20px;
   width: 100%;
   max-width: 768px;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   justify-content: center;
   align-items: center;
+}
+
+.app__tagline {
+  margin: 10px 4px;
+  font-size: 28px;
+}
+
+.app__tagline_top {
+  text-align: left;
+}
+
+.app__tagline_bottom {
+  text-align: right;
+}
+
+@media (max-width: 425px) {
+  .app__tagline {
+    margin: 6px 4px;
+    font-size: 18px;
+  }
 }
