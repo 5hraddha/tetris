@@ -3,6 +3,7 @@ import { BuildBoardReturn } from "../../types/board";
 import { Player } from "../../types/player";
 import { Action, getActionForKey } from "../../utils/input";
 import { playerController } from "../../utils/playerController";
+import { useInterval } from "../../hooks/useInterval";
 import "./GameController.css";
 
 type GameControllerProps = {
@@ -40,6 +41,9 @@ function GameController({
     handleInput({ action: getActionForKey(code) });
   };
 
+  useInterval(() => {
+    handleInput({ action: Action.SlowDrop });
+  }, 1000);
   return (
     <input
       className="gameController"
