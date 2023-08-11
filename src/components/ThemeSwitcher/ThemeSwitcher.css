@@ -1,5 +1,8 @@
 .theme-switcher {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 50px;
   height: 50px;
   border: 0;
@@ -17,6 +20,11 @@
   transform: translateY(-2px);
 }
 
+.theme-switcher_small {
+  width: 40px;
+  height: 40px;
+}
+
 .theme-switcher-icon {
   width: 25px;
   height: 25px;
@@ -27,4 +35,21 @@
 .theme-switcher:hover .theme-switcher-icon {
   transform: scale(1.2);
   opacity: 0.9;
+}
+
+.theme-switcher-icon_small {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 425px) {
+  .theme-switcher {
+    width: 40px;
+    height: 40px;
+  }
+
+  .theme-switcher-icon {
+    width: 20px;
+    height: 20px;
+  }
 }

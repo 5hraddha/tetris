@@ -25,12 +25,10 @@ function Tetris({ rows, columns, setGameOver }: TetrisProps) {
   });
 
   return (
-    <div className="tetris">
+    <section className="tetris">
+      <GameStats gameStats={gameStats} />
       <Board board={board} />
-      <div className="tetris__info">
-        <Previews tetrominoes={player.tetrominoes} />
-        <GameStats gameStats={gameStats} />
-      </div>
+      <Previews tetrominoes={player.tetrominoes} />
       <GameController
         board={board}
         // gameStats={gameStats}
@@ -38,7 +36,7 @@ function Tetris({ rows, columns, setGameOver }: TetrisProps) {
         setGameOver={setGameOver}
         setPlayer={setPlayer}
       />
-    </div>
+    </section>
   );
 }
 

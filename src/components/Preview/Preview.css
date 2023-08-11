@@ -1,6 +1,6 @@
 .preview {
-  background: rgba(0, 0, 0, 0.1);
-  border: 10px solid rgba(0, 0, 0, 0);
+  background: var(--preview-background);
+  border: var(--preview-border);
   border-radius: 10px;
 }
 

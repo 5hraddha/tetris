@@ -30,13 +30,17 @@
   --dark-shadow: rgb(0 0 0 / 10%);
   --light-shadow: rgb(255 255 255 / 10%);
 
+  /* Preview Colors */
+  --preview-background: rgba(0, 0, 0, 0.1);
+  --preview-border: 10px solid rgba(0, 0, 0, 0);
+
   /* Tetrominoes Colors */
-  --tetromino-i-color: #74c0fc;
-  --tetromino-o-color: #fcc419;
+  --tetromino-i-color: #4dabf7;
+  --tetromino-o-color: #f7bc0b;
   --tetromino-t-color: #9775fa;
   --tetromino-s-color: #51cf66;
   --tetromino-z-color: #fa5252;
-  --tetromino-j-color: #228be6;
+  --tetromino-j-color: #0e80e4;
   --tetromino-l-color: #ff922b;
 
   /* Tetromino Sparkle */
@@ -50,12 +54,16 @@
   --background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
   --logo-background: #1971c2;
   --text-primary: #ffffff;
-  --text-secondary: #ced4da;
+  --text-secondary: #e6ebef;
 
   /* Board Colors */
   --board-background-color: #0d0040;
   --board-border: #070218;
   --board-shadow: rgb(0 0 0 / 35%);
+
+  /* Preview Colors */
+  --preview-background: rgba(255, 255, 255, 0.4);
+  --preview-border: 10px solid rgba(255, 255, 255, 0);
 }
 
 body {

@@ -37,3 +37,15 @@
   transform: scale(1.2);
   opacity: 0.9;
 }
+
+@media (max-width: 425px) {
+  .menu__button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .menu__button-icon {
+    width: 20px;
+    height: 20px;
+  }
+}

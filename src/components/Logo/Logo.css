@@ -11,8 +11,16 @@
   background-color: var(--logo-background);
 }
 
+.logo_small {
+  max-width: 100px;
+}
+
 @media (max-width: 425px) {
   .logo {
     max-width: 300px;
+  }
+
+  .logo_small {
+    max-width: 100px;
   }
 }

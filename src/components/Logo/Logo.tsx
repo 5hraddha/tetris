@@ -1,10 +1,15 @@
 import TetrisLogo from "../../assets/images/tetris-official-logo.png";
 import "./Logo.css";
 
-function Logo() {
+type LogoProps = {
+  size: "small" | "large";
+};
+
+function Logo({ size }: LogoProps) {
+  const sizeClassName = size === "small" ? "logo_small" : "";
   return (
     <img
-      className="logo"
+      className={`logo ${sizeClassName}`}
       src={TetrisLogo}
       alt="logo having text spelling the word tetris"
     />
