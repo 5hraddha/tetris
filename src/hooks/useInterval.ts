@@ -14,11 +14,6 @@ export const useInterval = (callback: () => void, delay: number) => {
   useEffect(() => {
     function tick() {
       savedCallback.current();
-      // Put focus back to Game Controller input again after losing it
-      const gameControllerInput = document.querySelector(
-        ".gameController"
-      ) as HTMLElement;
-      gameControllerInput!.focus();
     }
     if (delay !== null) {
       const id = setInterval(tick, delay);

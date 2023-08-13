@@ -11,7 +11,7 @@ function App() {
 
   const [theme, setTheme] = useLocalStorage(
     "theme",
-    defaultDark ? "dark" : "light",
+    defaultDark ? "dark" : "light"
   );
 
   const [gameOver, setGameOver, resetGameOver] = useGameOver();
@@ -42,7 +42,12 @@ function App() {
               switchTheme={switchTheme}
             />
           </header>
-          <Tetris rows={20} columns={10} setGameOver={setGameOver} />
+          <Tetris
+            rows={20}
+            columns={10}
+            setGameOver={setGameOver}
+            gameOver={gameOver}
+          />
         </main>
       )}
     </div>

@@ -5,7 +5,7 @@ import type {
   PlayerController,
 } from "../types/playerController";
 import { isTetrominoWithinBoard, hasTetrominoCollided } from "./board";
-import { Action } from "./input";
+import { Action } from "./action";
 import { rotateTetromino } from "./tetrominoes";
 
 export const movePlayer = ({ delta, position, shape, board }: MovePlayer) => {

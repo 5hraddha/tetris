@@ -1,7 +1,7 @@
 import type { BuildBoardReturn } from "./board";
 import type { Player } from "./player";
 import type { Tetromino, RotateTetromino } from "./tetromino";
-import { Action } from "../utils/input";
+import { Action } from "../utils/action";
 
 export type PlayerController = {
   action: `${Action}`;

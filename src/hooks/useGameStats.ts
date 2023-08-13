@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
-import type { GameStats, UseGameStatsReturn } from "../types/gameStats";
+import type { GameStatsType, UseGameStatsReturn } from "../types/gameStats";
 
-const buildGameStats = (): GameStats => ({
+const buildGameStats = (): GameStatsType => ({
   level: 1,
   linesCompleted: 0,
   linesPerLevel: 10,
@@ -9,7 +9,7 @@ const buildGameStats = (): GameStats => ({
 });
 
 export const useGameStats = (): UseGameStatsReturn => {
-  const [gameStats] = useState<GameStats>(buildGameStats());
+  const [gameStats] = useState<GameStatsType>(buildGameStats());
   const addLinesCleared = useCallback(() => {}, []);
 
   return [gameStats, addLinesCleared];
