@@ -1,12 +1,12 @@
-import { defaultCell } from "./cell";
 import type {
   BuildBoard,
   BuildBoardReturn,
   NextBoard,
-  HasTetrominoCollided,
-  IsTetrominoWithinBoard,
+  FindDropPosition,
 } from "../types/board";
+import { defaultCell } from "./cell";
 import { transferToBoard } from "./tetrominoes";
+import { movePlayer } from "./playerController";
 
 // Builds a board having n rows. Each row has n columns. And each column has a default cell.
 export const buildBoard = ({ rows, columns }: BuildBoard): BuildBoardReturn => {
@@ -18,6 +18,25 @@ export const buildBoard = ({ rows, columns }: BuildBoard): BuildBoardReturn => {
     rows: builtRows,
     size: { rows, columns },
   };
+};
+
+const findDropPosition = ({ board, position, shape }: FindDropPosition) => {
+  const max = board.size.rows - position.row + 1;
+  let row = 0;
+
+  for (let i = 0; i < max; i += 1) {
+    const delta = { row: i, column: 0 };
+    const result = movePlayer({ delta, position, shape, board });
+    const { collided } = result;
+
+    if (collided) {
+      break;
+    }
+
+    row = position.row + i;
+  }
+
+  return { ...position, row };
 };
 
 export const nextBoard = ({
@@ -37,13 +56,38 @@ export const nextBoard = ({
     row.map((cell) => (cell.occupied ? cell : { ...defaultCell })),
   );
 
-  const rows = transferToBoard({
-    className: tetromino!.className,
-    isOccupied: player.collided,
+  // Drop position
+  const dropPosition = findDropPosition({
+    board,
     position,
+    shape: tetromino!.shape,
+  });
+
+  // Place ghost
+  const className = `${tetromino!.className} ${
+    player.isFastDropping ? "" : "tetromino__ghost"
+  }`;
+
+  console.log(className);
+  let rows = transferToBoard({
+    className,
+    isOccupied: player.isFastDropping,
+    position: dropPosition,
     rows: updatedRows,
     shape: tetromino!.shape,
   });
+
+  // Place the piece.
+  // If it collided, mark the board cells as collided
+  if (!player.isFastDropping) {
+    rows = transferToBoard({
+      className: tetromino!.className,
+      isOccupied: player.collided,
+      position,
+      rows: updatedRows,
+      shape: tetromino!.shape,
+    });
+  }
 
   // If we collided, reset the player!
   if (player.collided || player.isFastDropping) {
@@ -54,51 +98,4 @@ export const nextBoard = ({
     rows,
     size: { ...board.size },
   };
-};
-
-export const hasTetrominoCollided = ({
-  board,
-  position,
-  shape,
-}: HasTetrominoCollided) => {
-  for (let y = 0; y < shape.length; y += 1) {
-    const row = y + position.row;
-
-    for (let x = 0; x < shape[y].length; x += 1) {
-      if (shape[y][x]) {
-        const column = x + position.column;
-
-        if (
-          board.rows[row] &&
-          board.rows[row][column] &&
-          board.rows[row][column].occupied
-        ) {
-          return true;
-        }
-      }
-    }
-  }
-
-  return false;
-};
-
-export const isTetrominoWithinBoard = ({
-  board,
-  position,
-  shape,
-}: IsTetrominoWithinBoard) => {
-  for (let y = 0; y < shape.length; y += 1) {
-    const row = y + position.row;
-
-    for (let x = 0; x < shape[y].length; x += 1) {
-      if (shape[y][x]) {
-        const column = x + position.column;
-        const isValidPosition = board.rows[row] && board.rows[row][column];
-
-        if (!isValidPosition) return false;
-      }
-    }
-  }
-
-  return true;
 };

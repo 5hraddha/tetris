@@ -2,6 +2,8 @@ import type {
   Tetromino,
   TransferToBoard,
   RotateTetromino,
+  HasTetrominoCollided,
+  IsTetrominoWithinBoard,
 } from "../types/tetromino";
 
 type Tetrominoes = {
@@ -108,4 +110,51 @@ export const transferToBoard = ({
   });
 
   return currentRows;
+};
+
+export const hasTetrominoCollided = ({
+  board,
+  position,
+  shape,
+}: HasTetrominoCollided) => {
+  for (let y = 0; y < shape.length; y += 1) {
+    const row = y + position.row;
+
+    for (let x = 0; x < shape[y].length; x += 1) {
+      if (shape[y][x]) {
+        const column = x + position.column;
+
+        if (
+          board.rows[row] &&
+          board.rows[row][column] &&
+          board.rows[row][column].occupied
+        ) {
+          return true;
+        }
+      }
+    }
+  }
+
+  return false;
+};
+
+export const isTetrominoWithinBoard = ({
+  board,
+  position,
+  shape,
+}: IsTetrominoWithinBoard) => {
+  for (let y = 0; y < shape.length; y += 1) {
+    const row = y + position.row;
+
+    for (let x = 0; x < shape[y].length; x += 1) {
+      if (shape[y][x]) {
+        const column = x + position.column;
+        const isValidPosition = board.rows[row] && board.rows[row][column];
+
+        if (!isValidPosition) return false;
+      }
+    }
+  }
+
+  return true;
 };

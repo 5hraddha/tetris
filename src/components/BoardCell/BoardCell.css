@@ -22,7 +22,7 @@
   background-color: var(--tetromino-sparkle);
 }
 
-.tetromino__ghost {
+.tetromino.tetromino__ghost {
   background-color: transparent;
   border: 2px solid var(--tetromino-ghost);
 }

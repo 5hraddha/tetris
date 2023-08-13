@@ -26,13 +26,7 @@ export type NextBoard = {
 
 export type UseBoardReturn = [board: BuildBoardReturn];
 
-export type HasTetrominoCollided = {
-  board: BuildBoardReturn;
-  position: Player["position"];
-  shape: Tetromino["shape"];
-};
-
-export type IsTetrominoWithinBoard = {
+export type FindDropPosition = {
   board: BuildBoardReturn;
   position: Player["position"];
   shape: Tetromino["shape"];

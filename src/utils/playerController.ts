@@ -4,9 +4,12 @@ import type {
   MovePlayer,
   PlayerController,
 } from "../types/playerController";
-import { isTetrominoWithinBoard, hasTetrominoCollided } from "./board";
 import { Action } from "./action";
-import { rotateTetromino } from "./tetrominoes";
+import {
+  rotateTetromino,
+  isTetrominoWithinBoard,
+  hasTetrominoCollided,
+} from "./tetrominoes";
 
 export const movePlayer = ({ delta, position, shape, board }: MovePlayer) => {
   // Get the possible next position of the Tetromino by adding delta to the current position
