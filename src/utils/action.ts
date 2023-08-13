@@ -28,3 +28,6 @@ export const Key: KeyType = {
 };
 
 export const getActionForKey = (keyCode: string) => Key[keyCode];
+
+export const isDropAction = (action: `${Action}`) =>
+  [`${Action.SlowDrop}`, `${Action.FastDrop}`].includes(action);

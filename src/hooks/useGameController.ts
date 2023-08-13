@@ -8,7 +8,7 @@ import { useDropTime } from "./useDropTime";
 import { useInterval } from "./useInterval";
 
 import { playerController } from "../utils/playerController";
-import { Action, getActionForKey } from "../utils/action";
+import { Action, getActionForKey, isDropAction } from "../utils/action";
 
 type UseGameController = {
   board: BuildBoardReturn;
@@ -34,6 +34,11 @@ export const useGameController = ({
       return undefined;
     }
 
+    const handleKeyUp = ({ code }: { code: string }) => {
+      const currentAction = getActionForKey(code);
+      if (isDropAction(currentAction)) resumeDropTime();
+    };
+
     const handleKeyDown = ({ code }: { code: string }) => {
       const currentAction = getActionForKey(code);
 
@@ -49,6 +54,7 @@ export const useGameController = ({
         // Handle player movement and rotation when the game is not in paused state
         // eslint-disable-next-line
         if (dropTime) {
+          if (isDropAction(currentAction)) pauseDropTime();
           playerController({
             action: currentAction,
             board,
@@ -62,8 +68,10 @@ export const useGameController = ({
     };
 
     // Register events and cleanup
+    document.addEventListener("keyup", handleKeyUp);
     document.addEventListener("keydown", handleKeyDown);
     return () => {
+      document.removeEventListener("keyup", handleKeyUp);
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [
