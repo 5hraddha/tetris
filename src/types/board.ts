@@ -7,7 +7,7 @@ export type Board = {
   columns: number;
   player: Player;
   resetPlayer: () => void;
-  addLinesCleared: () => void;
+  addLinesCleared: (lines: number) => void;
 };
 
 export type BuildBoard = { rows: number; columns: number };
@@ -21,7 +21,7 @@ export type NextBoard = {
   board: BuildBoardReturn;
   player: Player;
   resetPlayer: () => void;
-  addLinesCleared: () => void;
+  addLinesCleared: (lines: number) => void;
 };
 
 export type UseBoardReturn = [board: BuildBoardReturn];

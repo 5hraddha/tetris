@@ -9,8 +9,27 @@ const buildGameStats = (): GameStatsType => ({
 });
 
 export const useGameStats = (): UseGameStatsReturn => {
-  const [gameStats] = useState<GameStatsType>(buildGameStats());
-  const addLinesCleared = useCallback(() => {}, []);
+  const [gameStats, setGameStats] = useState<GameStatsType>(buildGameStats());
+
+  const addLinesCleared = useCallback((lines: number) => {
+    setGameStats((previous) => {
+      const points = previous.points + lines * 100;
+      const { linesPerLevel } = previous;
+      const newLinesCompleted = previous.linesCompleted + lines;
+      const level =
+        newLinesCompleted >= linesPerLevel
+          ? previous.level + 1
+          : previous.level;
+      const linesCompleted = newLinesCompleted % linesPerLevel;
+
+      return {
+        level,
+        linesCompleted,
+        linesPerLevel,
+        points,
+      };
+    });
+  }, []);
 
   return [gameStats, addLinesCleared];
 };

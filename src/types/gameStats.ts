@@ -7,5 +7,5 @@ export type GameStatsType = {
 
 export type UseGameStatsReturn = [
   gameStats: GameStatsType,
-  addLinesCleared: () => void,
+  addLinesCleared: (lines: number) => void,
 ];

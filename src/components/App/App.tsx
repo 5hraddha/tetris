@@ -11,7 +11,7 @@ function App() {
 
   const [theme, setTheme] = useLocalStorage(
     "theme",
-    defaultDark ? "dark" : "light"
+    defaultDark ? "dark" : "light",
   );
 
   const [gameOver, setGameOver, resetGameOver] = useGameOver();
