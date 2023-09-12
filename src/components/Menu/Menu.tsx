@@ -11,7 +11,7 @@ type MenuProps = {
 function Menu({ onClick, theme, switchTheme }: MenuProps) {
   return (
     <div className="menu">
-      <ThemeSwitcher theme={theme} switchTheme={switchTheme} />
+      <ThemeSwitcher theme={theme} switchTheme={switchTheme} size="large" />
       <button type="button" className="menu__button" onClick={onClick}>
         <ArrowRight className="menu__button-icon" />
       </button>
