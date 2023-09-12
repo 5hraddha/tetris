@@ -46,4 +46,4 @@ The project primarily was started just for fun after being captivated by playing
 
 ## Enjoy playing Tetris
 
-[]()
+Join the block stacking adventure - [here](https://tetris-adventure.netlify.app/)
