@@ -12,6 +12,8 @@
 **Tetris**, a block-stacking adventure, is a web-based Tetris game built using React, designed to deliver a modern and captivating gaming experience while paying homage to the classic puzzle game that has entertained generations.
 The project primarily was started just for fun after being captivated by playing Tetris 🤓, but it is ongoing adventure. The primary goal of this project is to create an engaging and memorable Tetris experience that appeals to both nostalgic fans of the classic game and new generations of players.
 
+https://github.com/5hraddha/tetris/assets/27571141/26879c6b-a88a-43de-86bc-74014a24b45c
+
 ## Key Features
 
 1. **Timeless Gameplay in a Fluid Web Canvas**: Immerse yourself in the ageless challenge of Tetris within a beautifully responsive web interface that adapts seamlessly to your every move.
